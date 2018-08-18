@@ -433,6 +433,11 @@ namespace eosio {
            }
            ++start_itr;
         }
+
+        if ( result.actions.size() == 0 ) {
+          EOS_THROW(no_actions_found, "No actions found for account {account}", ("account", params.account_name));
+        }
+
         return result;
       }
 
